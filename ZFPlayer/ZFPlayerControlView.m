@@ -205,8 +205,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }];
     
     [self.bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.mas_equalTo(0);
-        make.top.equalTo(self.mas_bottom).offset(0);
+        make.leading.trailing.bottom.mas_equalTo(0);
         make.height.mas_equalTo(50);
     }];
     
@@ -472,7 +471,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 }
 
 - (void)playerPlayDidEnd {
-    self.backgroundColor  = RGBA(0, 0, 0, .6);
+//    self.backgroundColor  = RGBA(0, 0, 0, .6);
     self.repeatBtn.hidden = NO;
     // 初始化显示controlView为YES
     self.showing = NO;
@@ -508,10 +507,6 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.leading.equalTo(self.topImageView.mas_leading).offset(10);
         make.width.height.mas_equalTo(40);
     }];
-    [self.bottomImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(50);
-    }];
 }
 /**
  *  设置竖屏的约束
@@ -524,11 +519,6 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.top.equalTo(self.topImageView.mas_top).offset(3);
         make.leading.equalTo(self.topImageView.mas_leading).offset(10);
         make.width.height.mas_equalTo(40);
-    }];
-    [self.bottomImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.mas_equalTo(0);
-        make.top.equalTo(self.mas_bottom).offset(0);
-        make.height.mas_equalTo(50);
     }];
 
     if (self.isCellVideo) {
@@ -547,7 +537,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         self.topImageView.alpha    = 1;
         self.bottomImageView.alpha = 1;
     }
-    self.backgroundColor           = RGBA(0, 0, 0, 0.3);
+//    self.backgroundColor           = RGBA(0, 0, 0, 0.3);
     self.lockBtn.alpha             = 1;
     if (self.isCellVideo) {
         self.shrink                = NO;
@@ -558,7 +548,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 
 - (void)hideControlView {
     self.showing = NO;
-    self.backgroundColor          = RGBA(0, 0, 0, 0);
+//    self.backgroundColor          = RGBA(0, 0, 0, 0);
     self.topImageView.alpha       = self.playeEnd;
     self.bottomImageView.alpha    = 0;
     self.lockBtn.alpha            = 0;
@@ -1102,7 +1092,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     self.showing          = NO;
     // 隐藏controlView
     [self hideControlView];
-    self.backgroundColor  = RGBA(0, 0, 0, .3);
+//    self.backgroundColor  = RGBA(0, 0, 0, .3);
     ZFPlayerShared.isStatusBarHidden = NO;
     self.bottomProgressView.alpha = 0;
 }
