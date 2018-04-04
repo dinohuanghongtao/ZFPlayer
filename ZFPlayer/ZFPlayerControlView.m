@@ -205,7 +205,8 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     }];
     
     [self.bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.bottom.mas_equalTo(0);
+        make.leading.trailing.mas_equalTo(0);
+        make.top.equalTo(self.mas_bottom).offset(0);
         make.height.mas_equalTo(50);
     }];
     
@@ -507,6 +508,10 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.leading.equalTo(self.topImageView.mas_leading).offset(10);
         make.width.height.mas_equalTo(40);
     }];
+    [self.bottomImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(50);
+    }];
 }
 /**
  *  设置竖屏的约束
@@ -519,6 +524,11 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         make.top.equalTo(self.topImageView.mas_top).offset(3);
         make.leading.equalTo(self.topImageView.mas_leading).offset(10);
         make.width.height.mas_equalTo(40);
+    }];
+    [self.bottomImageView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.mas_equalTo(0);
+        make.top.equalTo(self.mas_bottom).offset(0);
+        make.height.mas_equalTo(50);
     }];
 
     if (self.isCellVideo) {
@@ -574,8 +584,10 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 
 
 - (void)autoFadeOutControlView {
+    /*
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(zf_playerHideControlView) object:nil];
     [self performSelector:@selector(zf_playerHideControlView) withObject:nil afterDelay:ZFPlayerAnimationTimeInterval];
+     */
 }
 
 /**
