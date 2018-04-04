@@ -144,6 +144,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         
         self.downLoadBtn.hidden     = YES;
         self.resolutionBtn.hidden   = YES;
+        self.showing=YES;
         // 初始化时重置controlView
         [self zf_playerResetControlView];
         // app退到后台
@@ -374,7 +375,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 
 - (void)lockScrrenBtnClick:(UIButton *)sender {
     sender.selected = !sender.selected;
-    self.showing = NO;
+    self.showing = YES;
     [self zf_playerShowControlView];
     if ([self.delegate respondsToSelector:@selector(zf_controlView:lockScreenAction:)]) {
         [self.delegate zf_controlView:self lockScreenAction:sender];
@@ -474,7 +475,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 //    self.backgroundColor  = RGBA(0, 0, 0, .6);
     self.repeatBtn.hidden = NO;
     // 初始化显示controlView为YES
-    self.showing = NO;
+    self.showing = YES;
     // 延迟隐藏controlView
     [self zf_playerShowControlView];
 }
