@@ -845,6 +845,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     if (!_placeholderImageView) {
         _placeholderImageView = [[UIImageView alloc] init];
         _placeholderImageView.userInteractionEnabled = YES;
+        _placeholderImageView.contentMode=UIViewContentModeScaleAspectFit;
     }
     return _placeholderImageView;
 }
@@ -887,7 +888,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     self.backgroundColor             = [UIColor clearColor];
     self.downLoadBtn.enabled         = YES;
     self.shrink                      = NO;
-    self.showing                     = NO;
+    self.showing                     = YES;
     self.playeEnd                    = NO;
     self.lockBtn.hidden              = !self.isFullScreen;
     self.failBtn.hidden              = YES;
@@ -904,7 +905,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
     self.failBtn.hidden         = YES;
     self.backgroundColor        = [UIColor clearColor];
     self.shrink                 = NO;
-    self.showing                = NO;
+    self.showing                = YES;
     self.playeEnd               = NO;
 }
 
@@ -1089,7 +1090,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
 - (void)zf_playerPlayEnd {
     self.repeatBtn.hidden = NO;
     self.playeEnd         = YES;
-    self.showing          = NO;
+    self.showing          = YES;
     // 隐藏controlView
     [self hideControlView];
 //    self.backgroundColor  = RGBA(0, 0, 0, .3);
