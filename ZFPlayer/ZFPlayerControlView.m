@@ -627,7 +627,7 @@ static const CGFloat ZFPlayerControlBarAutoFadeOutTimeInterval = 0.35f;
         _topImageView                        = [[UIImageView alloc] init];
         _topImageView.userInteractionEnabled = YES;
         _topImageView.alpha                  = 0;
-        _topImageView.image                  = ZFPlayerImage(@"ZFPlayer_top_shadow");
+        _topImageView.image                  = nil;//ZFPlayerImage(@"ZFPlayer_top_shadow");
     }
     return _topImageView;
 }
